@@ -7,15 +7,15 @@ class ProductsService{
     }
     //Traer producto por id
     static async getProductById(productId){
-        await ContenedorDAOProductos.getById(productId)
+        return await ContenedorDAOProductos.getById(productId);
     }
     //Subir un nuevo producto. Solo disponible para admin
     static async uploadProduct(body){
-        await ContenedorDAOProductos.save(body)
+        return await ContenedorDAOProductos.save(body)
     }
     //Actualizar producto. Solo disponible para admin
     static async updateProduct(body, id){
-        await ContenedorDAOProductos.update(body, id)
+        return await ContenedorDAOProductos.update(body, id)
     }
     //Borrar producto por id. Solo disponible para admin
     static async deleteProductById(id){

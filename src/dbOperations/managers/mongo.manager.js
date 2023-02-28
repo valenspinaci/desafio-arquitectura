@@ -17,6 +17,7 @@ class ContenedorMongo{
     async getAll(){
         try {
             let productos = this.mongoModel.find();
+            console.log(productos)
             return productos;
         } catch (error) {
             console.log("No se pudieron traer los productos")
@@ -25,9 +26,9 @@ class ContenedorMongo{
 
     async getById(productId){
         try {
-            let producto = await this.mongoModel.find({_id:productId})
-            //console.log(producto)
-            return producto
+            let productos = await this.mongoModel.find();
+            const result = productos.find(producto => producto._id == productId)
+            return result;
         } catch (error) {
             console.log("No se pudo traer el producto")
         }

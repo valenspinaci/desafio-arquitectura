@@ -18,9 +18,9 @@ class ProductsController{
     }
 
     static async getProductById(req,res){
-        let id = req.params.id
         try {
-            const response = ProductsService.getProductById(id);
+            const productId = req.params.id
+            const response = await ProductsService.getProductById(productId);
             res.status(200).json({
                 status:"Success",
                 data: response
@@ -65,7 +65,7 @@ class ProductsController{
                 await ProductsService.uploadProduct(body);
                 res.status(200).json({
                     status:"Success",
-                    message:`El nuevo producto ingresado fue: ${body}`
+                    message:`Producto actualizado`
                 })
             }else{
                 res.status(400).json({
