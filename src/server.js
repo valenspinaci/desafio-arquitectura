@@ -11,4 +11,4 @@ app.use(express.urlencoded({extended:true}));
 app.use("/api", router)
 
 const PORT = process.env.port || 8080;
-app.listen(PORT, ()=>(`Server listening on port ${PORT}`));
+app.listen(PORT, ()=>(console.log(`Servidor inicializado en puerto ${PORT}`)));

@@ -1,13 +1,18 @@
 import { ContenedorDAOProductos } from "../dbOperations/index.js";
+import {convertProductToDto} from "../dbOperations/dtos/products.dto.js";
 
 class ProductsService{
     //Traer productos
     static async getProducts(){
-        return await ContenedorDAOProductos.getAll()
+        const products = await ContenedorDAOProductos.getAll();
+        const productsDto = convertProductToDto(products);
+        return productsDto;
     }
     //Traer producto por id
     static async getProductById(productId){
-        return await ContenedorDAOProductos.getById(productId);
+        const product = await ContenedorDAOProductos.getById(productId);
+        const productDto = convertProductToDto(product);
+        return productDto;
     }
     //Subir un nuevo producto. Solo disponible para admin
     static async uploadProduct(body){
