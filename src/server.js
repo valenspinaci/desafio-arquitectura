@@ -12,3 +12,5 @@ app.use("/api", router)
 
 const PORT = process.env.port || 8080;
 app.listen(PORT, ()=>(console.log(`Servidor inicializado en puerto ${PORT}`)));
+
+export{app};
